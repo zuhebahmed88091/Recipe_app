@@ -3,8 +3,7 @@ class FoodsController < ApplicationController
     @foods = current_user.foods
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @food = Food.new
