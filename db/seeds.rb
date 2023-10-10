@@ -15,6 +15,8 @@ Food.create!(name: 'Tomato', measurement_unit: 'g', quantity: 5000, price: 100, 
 Food.create!(name: 'Onion', measurement_unit: 'g', quantity: 4000, price: 80, user_id: 1)
 Food.create!(name: 'Garlic', measurement_unit: 'g', quantity: 2000, price: 60, user_id: 1)
 Recipe.create!(name: 'Bife a Cavalo', preparation_time: 10, cooking_time: 20, description: 'Bife a Cavalo is a traditional Brazilian dish consisting of a steak, rice, french fries and a fried egg.', public: true, user_id: 1)
+Recipe.create!(name: 'Momo', preparation_time: 5, cooking_time: 15, description: 'Momo is a type of South Asian dumpling; native to Tibet, Nepal, Bhutan, Sikkim state and Darjeeling district of India.', public: true, user_id: 1)
+Recipe.create!(name: 'Kebab', preparation_time: 20, cooking_time: 50, description: 'Kebab is a dish of pieces of meat, fish, or vegetables roasted on a skewer or spit.', public: true, user_id: 1)
 RecipeFood.create!(quantity: 300, food_id: 1, recipe_id: 1)
 RecipeFood.create!(quantity: 350, food_id: 2, recipe_id: 1)
 RecipeFood.create!(quantity: 100, food_id: 3, recipe_id: 1)
