@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show, :new, :create, :destroy]
 
-  root 'foods#index'
+  root to: 'foods#index'
 end
