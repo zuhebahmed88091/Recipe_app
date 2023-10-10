@@ -9,12 +9,6 @@ class RecipesController < ApplicationController
     @recipe_foods = @recipe.recipe_foods
   end
 
-  def new
-    @recipe = Recipe.new
-  end
-
-  def create; end
-
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
