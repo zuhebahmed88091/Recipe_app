@@ -4,7 +4,7 @@
       <div class="form-row">
         <div class="form-group col-md-6 mb-3"> <!-- Added mb-3 class for margin-bottom -->
           <%= form.label :food_id, "Food" %>
-          <%= form.collection_select :food_id, Food.all, :id, :name, { prompt: "Select a food" }, class: "form-control" %>
+          <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: "Select a food" }, class: "form-control" %>
         </div>
 
         <div class="form-group col-md-6">
