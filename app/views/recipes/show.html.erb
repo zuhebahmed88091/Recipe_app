@@ -22,7 +22,9 @@
   
   <div class="recipe-details-btns mt-3">
     <button class="btn btn-success">Generate Shopping List</button>
-    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
+    <% if current_user == @recipe.user %>
+      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
+    <% end %>
   </div>
 
   <table class="table mt-4">
