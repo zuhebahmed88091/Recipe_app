@@ -5,6 +5,7 @@
             <tr>
                 <th scope="col">Foods</th>
                 <th scope="col">Measurement Unit</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Unit Price</th>
                 <th scope="col">Action</th>
             </tr>
@@ -14,6 +15,7 @@
                 <tr>
                     <td><%= food.name %></td>
                     <td><%= food.measurement_unit %></td>
+                    <td><%= food.quantity %></td>
                     <td><%= food.price %></td>
                     <td>
                         <%= button_to "Delete", food, method: :delete, class: 'btn btn-outline-danger' %>
