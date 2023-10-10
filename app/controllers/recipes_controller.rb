@@ -15,6 +15,17 @@ class RecipesController < ApplicationController
 
   def create; end
 
+  # app/controllers/recipes_controller.rb
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(public: !@recipe.public)
+      redirect_to @recipe, notice: 'Recipe public status was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
