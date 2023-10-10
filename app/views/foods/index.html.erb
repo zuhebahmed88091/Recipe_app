@@ -1,3 +1,4 @@
+<div class="container-fluid p-3">
 <%= link_to "Add food", new_food_path, class: 'btn btn-outline-success' %>
 <table class="table table-striped">
     <% if @foods.present? %>
@@ -27,3 +28,4 @@
         <p>No foods found</p>
     <% end %>
 </table>
+</div>
