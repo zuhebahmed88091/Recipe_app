@@ -1,12 +1,11 @@
-<h1 class="display-4">Recipes</h1>
-<div class="container">
+<div class="container mt-3">
   <div class="mb-4">
     <%= link_to "Add New Recipe", new_recipe_path, class: "btn btn-primary" %>
   </div>
   <% @recipes.each do |recipe| %>
     <div class="card mb-4">
       <div class="card-body">
-        <h2 class="card-title"><%= link_to recipe.name, recipe %></h2>
+        <h2 class="card-title"><%= link_to recipe.name, recipe, class: "text-decoration-none text-reset" %></h2>
         <p class="card-text"><strong>Description:</strong> <%= recipe.description %></p>
         <p class="card-text"><strong>Preparation Time:</strong> <%= recipe.preparation_time %> minutes</p>
         <p class="card-text"><strong>Cooking Time:</strong> <%= recipe.cooking_time %> minutes</p>

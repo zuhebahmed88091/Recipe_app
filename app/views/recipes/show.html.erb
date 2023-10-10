@@ -39,7 +39,7 @@
         <tr>
           <td><%= recipe_food.food.name %></td>
           <td><%= recipe_food.quantity %></td>
-          <td><%= recipe_food.food.price %></td>
+          <td><%= recipe_food.food.price * recipe_food.quantity %></td>
           <td>
             <button class="btn btn-warning">Edit</button>
             <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

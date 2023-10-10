@@ -1,0 +1,53 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+<h1 class="display-4">Shopping List</h1>
+
+<div class="w-100">
+  <% @total_items = 0 %>
+  <% @total_value = 0 %>
+
+  <% @foods.each do |food| %>
+    <% if @recipe_foods.key?(food.id) %>
+      <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+      <% if calculated_quantity > 0 %>
+        <% @total_items += calculated_quantity %>
+        <% @total_value += calculated_quantity * food.price %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="container w-50">
+    <div class="row">
+      <div class="col">
+        Amount of food items to buy: <%= @total_items %>
+      </div>
+
+      <div class="col">
+        Total value of food needed: <%= @total_value %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped border border-dark table-hover w-50 mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <% if @recipe_foods.key?(food.id) %>
+        <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+        <% if calculated_quantity > 0 %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= calculated_quantity %></td>
+            <td><%= calculated_quantity * food.price %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
