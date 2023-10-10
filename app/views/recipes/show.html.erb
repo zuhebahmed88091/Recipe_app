@@ -1,46 +1,51 @@
-<div class="recipe-details">
+<div class="container recipe-details">
   <h2><%= @recipe.name %></h2>
 
-  <div class="recipe-details-box1">
-    <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
+  <div class="row recipe-details-box1">
+    <div class="col-md-6">
+      <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %> minutes</p>
+    </div>
 
-    <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
-      <label for="recipe_public">Public:</label>
-      <%= f.check_box :public, id: 'recipe_public' %>
-      <%= f.submit 'Toggle', class: 'btn btn-primary' %>
-    <% end %>
-
+    <div class="col-md-6 text-right">
+      <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :public, class: 'mr-2' %>
+          <%= f.check_box :public, id: 'recipe_public', class: 'form-check-input' %>
+          <%= f.submit 'Toggle', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
-  <p>Description: <%= @recipe.description %></p>
+  <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
+  <p><strong>Description:</strong> <%= @recipe.description %></p>
   
-  <div class="recipe-details-btns">
-    <button>Generate shopping list</button>
-    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id) %>
+  <div class="recipe-details-btns mt-3">
+    <button class="btn btn-success">Generate Shopping List</button>
+    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
   </div>
 
-  <table>
-  <thead>
-    <tr>
-    <th>Food</th>
-    <th>Quantity</th>
-    <th>Value</th>
-    <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipe_foods.each do |recipe_food| %>
-    <tr>
-    <td><%= recipe_food.food.name %></td>
-    <td><%= recipe_food.quantity %></td>
-    <td><%= recipe_food.food.price %></td>
-      <td>
-      <button>Edit</button>
-      <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food) %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= recipe_food.food.price %></td>
+          <td>
+            <button class="btn btn-warning">Edit</button>
+            <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
