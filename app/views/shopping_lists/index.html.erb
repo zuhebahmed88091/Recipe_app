@@ -1,0 +1,46 @@
+<h1><%= "Shopping List" %></h1>
+
+<!-- Separate div to calculate and display total items and total value -->
+<div class="total-info">
+  <% @total_items = 0 %>
+  <% @total_value = 0 %>
+
+  <% @foods.each do |food| %>
+    <% if @recipe_foods.key?(food.id) %>
+      <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+      <% if calculated_quantity > 0 %>
+        <% @total_items += calculated_quantity %>
+        <% @total_value += calculated_quantity * food.price %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <p>Total Items: <%= @total_items %></p>
+  <p>Total Value: <%= @total_value %></p>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <% if @recipe_foods.key?(food.id) %>
+        <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+        <% if calculated_quantity > 0 %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= calculated_quantity %></td>
+            <td><%= calculated_quantity * food.price %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+    <!-- Remaining table rows go here -->
+  </tbody>
+</table>
