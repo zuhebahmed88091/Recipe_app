@@ -1,0 +1,41 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <%= form_with(model: @food) do |form| %>
+        <% if @food.errors.any? %>
+            <div>
+                <h2><%= pluralize(food.errors.count, "error") %> Food cannot be saved:</h2>
+
+                <ul>
+                    <% food.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+        <div class="d-flex flex-column w-100">
+            <div>
+                <%= form.label :name, style: "display: block" %>
+                <%= form.text_field :name, class: 'w-100' %>
+            </div>
+
+            <div>
+                <%= form.label :measurement_unit, style: "display: block" %>
+                <%= form.text_field :measurement_unit, class: 'w-100' %>
+            </div>
+
+            <div>
+                <%= form.label :price, style: "display: block" %>
+                <%= form.text_field :price, class: 'w-100' %>
+            </div>
+
+            <div>
+                <%= form.label :quantity, style: "display: block" %>
+                <%= form.number_field :quantity, class: 'w-100' %>
+            </div>
+
+            <div>
+                <%= form.submit class: 'btn btn-outline-dark btn-sm mt-2 float-start' %>
+            </div>
+        </div>
+    <% end %>
+</div>
