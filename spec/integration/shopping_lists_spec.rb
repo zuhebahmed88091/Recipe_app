@@ -9,7 +9,7 @@ RSpec.describe 'Shopping List', type: :feature do
     u.password = 'john123'
   end
 
-  recipe = Recipe.find_or_create_by(id: 55) do |r|
+  recipe = Recipe.find_or_create_by(id: 155) do |r|
     r.name = 'Chow'
     r.description = 'Fried chow'
     r.preparation_time = 10
@@ -17,7 +17,7 @@ RSpec.describe 'Shopping List', type: :feature do
     r.user_id = user.id
   end
 
-  food = Food.find_or_create_by(id: 55) do |f|
+  food = Food.find_or_create_by(id: 155) do |f|
     f.name = 'Flour'
     f.measurement_unit = 'g'
     f.price = 2
@@ -25,8 +25,8 @@ RSpec.describe 'Shopping List', type: :feature do
     f.user = user
   end
 
-  RecipeFood.find_or_create_by(id: 30) do |rf|
-    rf.quantity = 10
+  RecipeFood.find_or_create_by(id: 130) do |rf|
+    rf.quantity = 200
     rf.recipe_id = recipe.id
     rf.food_id = food.id
   end
