@@ -73,4 +73,3 @@ gem 'cancancan'
 gem 'devise', '~> 4.9'
 gem 'factory_bot_rails'
 gem 'rspec-rails'
-
