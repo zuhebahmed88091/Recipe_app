@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show, :new, :create, :destroy]
   get 'public_recipes', to: 'recipes#public_recipes' 
-  # root to: 'foods#index'
 end
