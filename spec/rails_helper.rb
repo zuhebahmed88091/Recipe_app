@@ -28,7 +28,6 @@ require 'devise'
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
-
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -40,7 +39,6 @@ RSpec.configure do |config|
   config.before(:each, type: :feature) do
     default_url_options[:host] = 'http://127.0.0.1:3000/' # Replace with your application's host
   end
-
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{Rails.root}/spec/fixtures"
