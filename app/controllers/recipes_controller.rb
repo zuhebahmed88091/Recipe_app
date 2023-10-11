@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:public_recipes]
   def public_recipes
     @public_recipes = Recipe.where(public: true).includes(recipe_foods: :food).order(created_at: :desc)
   end
