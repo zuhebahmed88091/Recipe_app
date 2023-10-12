@@ -1,6 +1,5 @@
 <div class="container recipe-details">
-  <h2><%= @recipe.name %></h2>
-
+  <h2 class="text-center mb-4" style="margin-right:30%;"><%= @recipe.name %></h2>
   <div class="row recipe-details-box1">
     <div class="col-md-6">
       <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %> minutes</p>
@@ -20,11 +19,15 @@
   <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
   <p><strong>Description:</strong> <%= @recipe.description %></p>
   
-  <div class="recipe-details-btns mt-3">
-    <button class="btn btn-success">Generate Shopping List</button>
-    <% if current_user == @recipe.user %>
-      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
-    <% end %>
+  <div class="row recipe-details-btns mt-4 mb-4">
+    <div class="col-md-6">
+      <button class="btn btn-success btn-block">Generate Shopping List</button>
+    </div>
+    <div class="col-md-6">
+      <% if current_user == @recipe.user %>
+        <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </div>
   </div>
 
   <table class="table mt-4">
