@@ -85,7 +85,8 @@ test:
 #
 production:
   <<: *default
-  database: recipe_app_production_6xvh
-  username: production
-  # password: mesak123
-  password: XwuKRHBGOuiPY1pXGPr4qRiVYmhFwqvx
+  # database: recipe_app_production_6xvh
+  # username: production
+  # # password: mesak123
+  # password: XwuKRHBGOuiPY1pXGPr4qRiVYmhFwqvx
+  url: <%= ENV['DATABASE_URL'] %>
