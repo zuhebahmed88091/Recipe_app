@@ -21,7 +21,7 @@
   
   <div class="row recipe-details-btns mt-4 mb-4">
     <div class="col-md-6">
-      <button class="btn btn-success btn-block">Generate Shopping List</button>
+      <%= link_to "Generate Shopping List", shopping_lists_path, class: "btn btn-success btn-block" %>
     </div>
     <div class="col-md-6">
       <% if current_user == @recipe.user %>
