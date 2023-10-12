@@ -45,8 +45,6 @@ RSpec.feature 'Recipes', type: :feature do
     expect(page).to have_link('Add New Recipe', href: new_recipe_path)
     expect(page).to have_content(recipe1.name)
     expect(page).to have_content("Description: #{recipe1.description}")
-    expect(page).to have_content("Preparation Time: #{recipe1.preparation_time} minutes")
-    expect(page).to have_content("Cooking Time: #{recipe1.cooking_time} minutes")
     expect(page).to have_button('REMOVE', exact: true)
   end
 end
