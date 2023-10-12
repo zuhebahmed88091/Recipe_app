@@ -48,6 +48,7 @@ RSpec.feature 'Food List', type: :feature do
     expect(page).to have_content(food.quantity)
 
     click_link 'Add food'
+    sleep(2)
     expect(page).to have_current_path(user_session_path)
   end
 end
